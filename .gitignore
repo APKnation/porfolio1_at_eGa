@@ -1,0 +1,43 @@
+# Root gitignore for the Portfolio workspace
+
+# Environment
+.env
+.env.*
+
+# Node
+frontend/frontend_porfolio/node_modules/
+frontend/frontend_porfolio/dist/
+frontend/frontend_porfolio/out-tsc/
+frontend/frontend_porfolio/npm-debug.log
+frontend/frontend_porfolio/yarn-error.log
+
+# Python/Django
+backend/venv/
+backend/backend_portfolio/__pycache__/
+backend/backend_portfolio/*.py[cod]
+backend/backend_portfolio/db.sqlite3
+
+# IDEs and editors
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+.idea/
+.project
+.classpath
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
