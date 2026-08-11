@@ -1,0 +1,30 @@
+from rest_framework import serializers
+from .models import Profile, Experience, Project, Skill
+
+
+class ExperienceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Experience
+        fields = ['id', 'title', 'organization', 'description', 'exp_type', 'start_date', 'end_date', 'is_current']
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ['id', 'title', 'description', 'url', 'technologies']
+
+
+class SkillSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skill
+        fields = ['id', 'name', 'level']
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    experiences = ExperienceSerializer(many=True, read_only=True)
+    projects = ProjectSerializer(many=True, read_only=True)
+    skills = SkillSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = ['id', 'name', 'title', 'bio', 'email', 'phone', 'location', 'linkedin', 'github', 'website', 'experiences', 'projects', 'skills']
