@@ -5,19 +5,22 @@ from .models import Profile, Experience, Project, Skill
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
-        fields = ['id', 'title', 'organization', 'description', 'exp_type', 'start_date', 'end_date', 'is_current']
+        fields = ['id', 'profile', 'title', 'organization', 'description', 'exp_type', 'start_date', 'end_date', 'is_current']
+        extra_kwargs = {'profile': {'write_only': True}}
 
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'title', 'description', 'url', 'technologies']
+        fields = ['id', 'profile', 'title', 'description', 'url', 'technologies']
+        extra_kwargs = {'profile': {'write_only': True}}
 
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
-        fields = ['id', 'name', 'level']
+        fields = ['id', 'profile', 'name', 'level']
+        extra_kwargs = {'profile': {'write_only': True}}
 
 
 class ProfileSerializer(serializers.ModelSerializer):
