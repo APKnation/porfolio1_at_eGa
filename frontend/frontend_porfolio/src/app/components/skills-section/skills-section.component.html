@@ -1,0 +1,11 @@
+<section class="mb-10" id="skills">
+  <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+    <h2 class="text-3xl font-semibold tracking-tight text-slate-950">Skills</h2>
+  </div>
+  <div *ngIf="skills.length; else emptyState" class="flex flex-wrap gap-3">
+    <span *ngFor="let skill of skills" class="rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700">{{ skill.name }}<span *ngIf="skill.level"> · {{ skill.level }}</span></span>
+  </div>
+  <ng-template #emptyState>
+    <p class="text-slate-500">No skills added yet.</p>
+  </ng-template>
+</section>

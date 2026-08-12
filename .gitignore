@@ -8,6 +8,9 @@
 frontend/frontend_porfolio/node_modules/
 frontend/frontend_porfolio/dist/
 frontend/frontend_porfolio/out-tsc/
+frontend/frontend_porfolio/.angular/
+frontend/frontend_porfolio/.git-nested-backup/
+frontend/frontend_porfolio/.git-nested-backup-*/
 frontend/frontend_porfolio/npm-debug.log
 frontend/frontend_porfolio/yarn-error.log
 

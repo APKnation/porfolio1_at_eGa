@@ -1,0 +1,13 @@
+
+:host { display: block; }
+.action-panel { display: flex; justify-content: space-between; gap: 2rem; padding: 1.5rem; border: 1px solid #d9e2ec; border-radius: 1rem; background: #fff; box-shadow: 0 10px 30px rgba(16, 42, 67, .08); }
+.eyebrow { margin: 0 0 .35rem; color: #627d98; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h2 { margin: 0; color: #102a43; }
+.description { margin: .5rem 0 0; color: #627d98; }
+.action-controls { display: grid; grid-template-columns: minmax(12rem, 1fr) auto; gap: .5rem; align-items: end; min-width: 22rem; }
+label { grid-column: 1 / -1; color: #486581; font-size: .8rem; font-weight: 700; }
+select, button { min-height: 2.6rem; border-radius: .5rem; padding: .5rem .75rem; font: inherit; }
+select { border: 1px solid #bcccdc; background: #fff; color: #243b53; }
+button { border: 0; background: #d64545; color: #fff; font-weight: 700; }
+button:disabled { cursor: not-allowed; opacity: .5; }
+@media (max-width: 700px) { .action-panel { flex-direction: column; } .action-controls { min-width: 0; } }

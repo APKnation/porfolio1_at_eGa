@@ -1,0 +1,10 @@
+<header class="bg-slate-950 text-slate-100">
+	<div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 lg:px-8">
+		<div class="space-y-4">
+			<p class="text-sm font-semibold uppercase tracking-[0.28em] text-sky-400">Software portfolio</p>
+			<h1 class="text-4xl font-semibold sm:text-5xl">{{ profile?.full_name || profile?.name || 'Your name' }}</h1>
+			<p class="text-lg text-slate-300">{{ profile?.title }}</p>
+			<p class="max-w-3xl text-slate-400" *ngIf="profile?.bio">{{ profile?.bio }}</p>
+		</div>
+	</div>
+</header>

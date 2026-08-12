@@ -1,0 +1,7 @@
+.card { border: 1px solid #d9e2ec; }
+.card-title { color: #102a43; }
+.project-form { padding: 1rem; }
+.project-form .form-label { font-weight: 600; }
+.project-actions { display: flex; align-items: center; gap: 0.5rem; }
+.section-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.section-header h2 { margin: 0; }

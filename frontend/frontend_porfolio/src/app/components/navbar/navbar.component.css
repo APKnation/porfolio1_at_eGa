@@ -1,0 +1,6 @@
+.navbar-header { padding: 4rem 0; color: #fff; background: #102a43; }
+.eyebrow { color: #f6bd60; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+h1 { margin: 0; font-size: clamp(2.5rem, 8vw, 5rem); }
+.title { font-size: 1.35rem; }
+.bio { max-width: 40rem; color: #d9e2ec; }
+button { border: 0; border-radius: .5rem; padding: .7rem 1rem; background: #f6bd60; color: #102a43; font-weight: 700; }
