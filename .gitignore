@@ -13,6 +13,9 @@ frontend/frontend_porfolio/yarn-error.log
 
 # Python/Django
 backend/venv/
+backend/backend_portfolio/venv/
+**/__pycache__/
+*.py[cod]
 backend/backend_portfolio/__pycache__/
 backend/backend_portfolio/*.py[cod]
 backend/backend_portfolio/db.sqlite3
