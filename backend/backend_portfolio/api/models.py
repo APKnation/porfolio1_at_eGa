@@ -3,6 +3,7 @@ from django.db import models
 
 class Profile(models.Model):
     name = models.CharField(max_length=150)
+    image = models.ImageField(upload_to='profile-images/', blank=True, null=True)
     title = models.CharField(max_length=200, blank=True)
     bio = models.TextField(blank=True)
     email = models.EmailField(blank=True)

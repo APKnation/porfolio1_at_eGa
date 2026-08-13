@@ -4,7 +4,7 @@ from .models import Profile, Experience, Project, Skill
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('name', 'title', 'email', 'phone')
+    list_display = ('name', 'title', 'email', 'phone', 'image')
     search_fields = ('name', 'email', 'title')
 
 
