@@ -1,13 +1,17 @@
-<header class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950 text-white">
-  <div class="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
-    <a href="#top" class="grid h-9 w-9 place-items-center border border-white text-[10px] font-black tracking-tighter transition hover:rotate-6" aria-label="Home">{{ initials }}</a>
-    <button type="button" class="grid h-10 w-10 place-items-center border border-zinc-700 text-white md:hidden" (click)="isMenuOpen = !isMenuOpen" [attr.aria-expanded]="isMenuOpen" aria-controls="main-navigation" aria-label="Toggle navigation"><span class="text-xl leading-none">{{ isMenuOpen ? '×' : '☰' }}</span></button>
-    <nav id="main-navigation" [class.hidden]="!isMenuOpen" class="absolute left-0 right-0 top-[72px] border-b border-zinc-800 bg-zinc-950 px-5 py-6 md:static md:flex md:items-center md:gap-8 md:border-0 md:p-0" aria-label="Main navigation">
-      <div class="flex flex-col gap-5 text-xs font-bold uppercase tracking-[0.16em] md:flex-row md:items-center md:gap-8">
-        <a class="transition hover:text-zinc-400" href="#education" (click)="closeMenu()">About me</a>
-        <a class="transition hover:text-zinc-400" href="#skills" (click)="closeMenu()">Skills</a>
-        <a class="transition hover:text-zinc-400" href="#projects" (click)="closeMenu()">Portfolio</a>
-        <a *ngIf="profile.email" class="rounded-full bg-white px-4 py-3 text-center text-[10px] font-black text-zinc-950 transition hover:bg-zinc-300" [href]="'mailto:' + profile.email" (click)="closeMenu()">Contact me</a>
+<header class="bg-zinc-200 px-4 pt-4 sm:px-8 sm:pt-6">
+  <div class="mx-auto flex min-h-[74px] max-w-6xl items-center justify-between bg-white px-6 sm:px-10">
+    <a href="#top" class="grid h-10 w-10 place-items-center rounded-full border-4 border-cyan-600 text-lg font-black text-cyan-600" aria-label="Home">{{ initials }}</a>
+
+    <button type="button" class="grid h-10 w-10 place-items-center rounded border border-zinc-200 text-zinc-800 md:hidden" (click)="isMenuOpen = !isMenuOpen" [attr.aria-expanded]="isMenuOpen" aria-controls="main-navigation" aria-label="Toggle navigation">
+      <span class="text-xl leading-none">{{ isMenuOpen ? '×' : '☰' }}</span>
+    </button>
+
+    <nav id="main-navigation" [class.hidden]="!isMenuOpen" class="absolute left-4 right-4 top-[90px] z-50 border border-zinc-200 bg-white px-6 py-6 shadow-lg md:static md:flex md:border-0 md:p-0 md:shadow-none" aria-label="Main navigation">
+      <div class="flex flex-col gap-5 text-xs font-medium text-zinc-800 md:flex-row md:items-center md:gap-7">
+        <a class="text-cyan-600 transition hover:text-cyan-800" href="#top" (click)="closeMenu()">Home</a>
+        <a class="transition hover:text-cyan-700" href="#education" (click)="closeMenu()">About me</a>
+        <a class="transition hover:text-cyan-700" href="#projects" (click)="closeMenu()">Projects</a>
+        <a *ngIf="profile.email" class="transition hover:text-cyan-700" [href]="'mailto:' + profile.email" (click)="closeMenu()">Contact me</a>
       </div>
     </nav>
   </div>
