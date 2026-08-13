@@ -1,7 +1,7 @@
 <header class="sticky top-0 z-50 border-b border-primary/60 bg-primary/90 px-4 backdrop-blur-xl sm:px-8">
   <div class="mx-auto flex h-[76px] max-w-7xl items-center justify-between">
     <a href="#top" class="group flex items-center gap-3" aria-label="Home">
-      <span class="grid h-10 w-10 place-items-center rounded-xl bg-accent text-xs font-black tracking-tighter text-surface transition duration-300 group-hover:-rotate-6 group-hover:bg-accent">
+      <span class="grid h-10 w-10 place-items-center rounded-xl bg-surface text-xs font-black tracking-tighter text-primary transition duration-300 group-hover:-rotate-6 shadow-lg shadow-surface/5">
         {{ (profile.full_name || profile.name || 'P') | slice:0:1 | uppercase }}
       </span>
       <span class="hidden text-sm font-black tracking-tight text-surface sm:block">{{ profile.full_name || profile.name || 'Portfolio' }}</span>
@@ -12,7 +12,7 @@
       <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#education">About</a>
       <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#projects">Projects</a>
       <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#skills">Skills</a>
-      <a *ngIf="profile.email" class="ml-3 rounded-xl bg-accent px-4 py-3 text-sm font-bold text-surface transition hover:bg-accent" [href]="'mailto:' + profile.email">Let's talk</a>
+      <a class="ml-3 rounded-xl px-4 py-3 text-sm font-bold text-surface border border-surface/20 transition hover:bg-surface/10" href="#contact">Let's talk</a>
     </nav>
 
     <details class="relative md:hidden">
@@ -23,7 +23,7 @@
           <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#education">About</a>
           <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#projects">Projects</a>
           <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#skills">Skills</a>
-          <a *ngIf="profile.email" class="mt-2 rounded-xl bg-accent px-4 py-3 text-center text-sm font-bold text-surface transition hover:bg-accent" [href]="'mailto:' + profile.email">Let's talk</a>
+          <a class="mt-2 rounded-xl px-4 py-3 text-center text-sm font-bold text-surface border border-surface/20 transition hover:bg-surface/10" href="#contact">Let's talk</a>
         </div>
       </nav>
     </details>
