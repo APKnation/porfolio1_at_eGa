@@ -26,7 +26,18 @@ class SkillSerializer(serializers.ModelSerializer):
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
-        fields = ['id', 'profile', 'institution', 'degree', 'field_of_study', 'description', 'start_date', 'end_date', 'is_current']
+        fields = [
+            'id', 'profile',
+            # Primary
+            'primary_school_name', 'primary_start_year', 'primary_end_year',
+            # Secondary
+            'secondary_school_name', 'secondary_start_year', 'secondary_end_year',
+            # Advanced Secondary
+            'advanced_secondary_school_name', 'advanced_secondary_start_year', 'advanced_secondary_end_year',
+            # University
+            'university_name', 'university_degree', 'university_field',
+            'university_start_year', 'university_end_year', 'university_is_current',
+        ]
         extra_kwargs = {'profile': {'write_only': True}}
 
 

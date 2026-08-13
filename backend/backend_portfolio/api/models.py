@@ -53,16 +53,29 @@ class Skill(models.Model):
 
 class Education(models.Model):
     profile = models.ForeignKey(Profile, related_name='educations', on_delete=models.CASCADE)
-    institution = models.CharField(max_length=200)
-    degree = models.CharField(max_length=200)
-    field_of_study = models.CharField(max_length=200, blank=True)
-    description = models.TextField(blank=True)
-    start_date = models.CharField(max_length=50, blank=True)
-    end_date = models.CharField(max_length=50, blank=True)
-    is_current = models.BooleanField(default=False)
 
-    class Meta:
-        ordering = ['-start_date']
+    # ── Primary School ────────────────────────────────
+    primary_school_name = models.CharField(max_length=200, blank=True)
+    primary_start_year  = models.CharField(max_length=10,  blank=True)
+    primary_end_year    = models.CharField(max_length=10,  blank=True)
+
+    # ── Secondary School (O-Level / Form 1-4) ─────────
+    secondary_school_name = models.CharField(max_length=200, blank=True)
+    secondary_start_year  = models.CharField(max_length=10,  blank=True)
+    secondary_end_year    = models.CharField(max_length=10,  blank=True)
+
+    # ── Advanced Secondary (A-Level / Form 5-6) ───────
+    advanced_secondary_school_name = models.CharField(max_length=200, blank=True)
+    advanced_secondary_start_year  = models.CharField(max_length=10,  blank=True)
+    advanced_secondary_end_year    = models.CharField(max_length=10,  blank=True)
+
+    # ── University / College ──────────────────────────
+    university_name       = models.CharField(max_length=200, blank=True)
+    university_degree     = models.CharField(max_length=200, blank=True)
+    university_field      = models.CharField(max_length=200, blank=True)
+    university_start_year = models.CharField(max_length=10,  blank=True)
+    university_end_year   = models.CharField(max_length=10,  blank=True)
+    university_is_current = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.degree} @ {self.institution}"
+        return f"Education of {self.profile.name}"
