@@ -1,28 +1,29 @@
 <section id="projects">
-  <div class="mb-12 flex flex-col gap-5 border-b border-zinc-300 pb-8 sm:flex-row sm:items-end sm:justify-between">
+  <div class="mb-12 flex flex-col gap-5 border-b border-primary-700/50 pb-8 sm:flex-row sm:items-end sm:justify-between">
     <div>
-      <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">My projects</p>
-      <h2 class="mt-4 text-5xl font-bold tracking-[-0.07em] text-zinc-950 sm:text-6xl">Projects</h2>
+      <p class="text-xs font-black uppercase tracking-[0.2em] text-accent-400">My projects</p>
+      <h2 class="mt-4 text-5xl font-bold tracking-[-0.07em] text-surface sm:text-6xl">Projects</h2>
     </div>
-    <p class="max-w-sm text-sm leading-6 text-zinc-600">A curated selection of projects that demonstrates my process, range, and attention to detail.</p>
+    <p class="max-w-sm text-sm leading-6 text-surface-500">A curated selection of projects that demonstrates my process, range, and attention to detail.</p>
   </div>
+
   <div
     *ngIf="projects.length; else emptyState"
-    class="grid gap-px overflow-hidden border border-zinc-300 bg-zinc-300 md:grid-cols-2"
+    class="grid gap-px overflow-hidden border border-primary-700/50 bg-primary-700/30 md:grid-cols-2"
   >
     <article
       *ngFor="let project of projects; let index = index"
-      class="group flex min-h-[18rem] flex-col bg-white p-7 transition duration-300 hover:bg-zinc-950 sm:p-9"
+      class="group flex min-h-[18rem] flex-col bg-primary-900 p-7 transition duration-300 hover:bg-accent/10 sm:p-9"
     >
-      <p class="text-xs font-black text-zinc-400 group-hover:text-zinc-500">
+      <p class="text-xs font-black text-accent-600 group-hover:text-accent-400">
         0{{ index + 1 }}
       </p>
 
-      <h3 class="mt-auto text-3xl font-bold leading-none tracking-[-0.05em] text-zinc-950 group-hover:text-white">
+      <h3 class="mt-auto text-3xl font-bold leading-none tracking-[-0.05em] text-surface group-hover:text-surface-50">
         {{ project.title }}
       </h3>
 
-      <p class="mt-4 max-w-md text-sm leading-6 text-zinc-600 group-hover:text-zinc-300">
+      <p class="mt-4 max-w-md text-sm leading-6 text-surface-500 group-hover:text-surface-300">
         {{ project.description }}
       </p>
 
@@ -31,7 +32,7 @@
         [href]="project.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-7 inline-flex w-fit items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-zinc-950 group-hover:text-white"
+        class="mt-7 inline-flex w-fit items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-accent group-hover:text-accent-300"
       >
         View project <span class="text-base">↗</span>
       </a>
@@ -39,7 +40,7 @@
   </div>
 
   <ng-template #emptyState>
-    <div class="border border-dashed border-zinc-300 px-6 py-14 text-center text-zinc-500">
+    <div class="border border-dashed border-primary-700 px-6 py-14 text-center text-surface-500">
       No projects added yet.
     </div>
   </ng-template>

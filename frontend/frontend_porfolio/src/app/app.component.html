@@ -3,7 +3,7 @@
   <app-home [profile]="profile"></app-home>
 
   <main>
-    <p *ngIf="apiError" class="mx-auto my-8 max-w-6xl rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm text-rose-800" role="alert">
+    <p *ngIf="apiError" class="mx-auto my-8 max-w-6xl rounded-2xl border border-accent/30 bg-accent/10 px-5 py-4 text-sm text-surface-200" role="alert">
       {{ apiError }}
     </p>
 
@@ -12,3 +12,4 @@
     <skills-section [skills]="profile.skills"></skills-section>
   </main>
 </div>
+
