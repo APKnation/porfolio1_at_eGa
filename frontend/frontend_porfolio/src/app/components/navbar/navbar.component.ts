@@ -15,6 +15,11 @@ export class NavbarComponent {
     projects: [],
     skills: []
   };
+  isMenuOpen = false;
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
+  }
 
   get initials(): string {
     const name = this.profile.full_name || this.profile.name || 'P';

@@ -1,25 +1,14 @@
-<section class="grid min-h-[680px] overflow-hidden bg-zinc-950 md:min-h-screen md:grid-cols-[46%_54%]">
-  <div class="relative z-10 flex min-h-[34rem] flex-col bg-zinc-100 px-7 py-8 text-zinc-950 sm:px-12 lg:px-20 lg:py-10 md:[clip-path:polygon(0_0,100%_0,calc(100%-5rem)_100%,0_100%)]">
-    <a href="#top" class="grid h-10 w-10 place-items-center border-2 border-zinc-950 text-xs font-black tracking-tighter transition hover:rotate-6" aria-label="Home">{{ initials }}</a>
-    <div class="my-auto max-w-xl py-16 md:pr-16">
-      <p class="mb-6 text-sm font-bold uppercase tracking-[0.24em] text-zinc-500">Portfolio / 2026</p>
-      <p class="mb-5 text-lg font-semibold">Hello, I am</p>
-      <h1 class="max-w-[11ch] text-5xl font-bold leading-[.9] tracking-[-0.075em] sm:text-6xl lg:text-7xl">{{ profile.full_name || profile.name || 'Your name' }}</h1>
-      <p class="mt-5 text-base font-bold text-zinc-500 sm:text-lg">{{ profile.title || 'Your professional title' }}</p>
-      <p *ngIf="profile.bio" class="mt-5 max-w-lg text-sm leading-7 text-zinc-600 sm:text-base">{{ profile.bio }}</p>
-      <div class="mt-9 flex gap-3" aria-label="Social links">
-        <a *ngIf="profile.linkedin" [href]="profile.linkedin" target="_blank" rel="noopener noreferrer" class="grid h-11 w-11 place-items-center border border-zinc-400 bg-zinc-200 text-xs font-black uppercase shadow-[3px_3px_0_#a1a1aa] transition hover:-translate-y-1 hover:bg-white" aria-label="LinkedIn">in</a>
-        <a *ngIf="profile.github" [href]="profile.github" target="_blank" rel="noopener noreferrer" class="grid h-11 w-11 place-items-center border border-zinc-400 bg-zinc-200 text-xs font-black uppercase shadow-[3px_3px_0_#a1a1aa] transition hover:-translate-y-1 hover:bg-white" aria-label="GitHub">gh</a>
-        <a *ngIf="profile.website" [href]="profile.website" target="_blank" rel="noopener noreferrer" class="grid h-11 w-11 place-items-center border border-zinc-400 bg-zinc-200 text-lg font-black shadow-[3px_3px_0_#a1a1aa] transition hover:-translate-y-1 hover:bg-white" aria-label="Personal website">↗</a>
+<header class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950 text-white">
+  <div class="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+    <a href="#top" class="grid h-9 w-9 place-items-center border border-white text-[10px] font-black tracking-tighter transition hover:rotate-6" aria-label="Home">{{ initials }}</a>
+    <button type="button" class="grid h-10 w-10 place-items-center border border-zinc-700 text-white md:hidden" (click)="isMenuOpen = !isMenuOpen" [attr.aria-expanded]="isMenuOpen" aria-controls="main-navigation" aria-label="Toggle navigation"><span class="text-xl leading-none">{{ isMenuOpen ? '×' : '☰' }}</span></button>
+    <nav id="main-navigation" [class.hidden]="!isMenuOpen" class="absolute left-0 right-0 top-[72px] border-b border-zinc-800 bg-zinc-950 px-5 py-6 md:static md:flex md:items-center md:gap-8 md:border-0 md:p-0" aria-label="Main navigation">
+      <div class="flex flex-col gap-5 text-xs font-bold uppercase tracking-[0.16em] md:flex-row md:items-center md:gap-8">
+        <a class="transition hover:text-zinc-400" href="#education" (click)="closeMenu()">About me</a>
+        <a class="transition hover:text-zinc-400" href="#skills" (click)="closeMenu()">Skills</a>
+        <a class="transition hover:text-zinc-400" href="#projects" (click)="closeMenu()">Portfolio</a>
+        <a *ngIf="profile.email" class="rounded-full bg-white px-4 py-3 text-center text-[10px] font-black text-zinc-950 transition hover:bg-zinc-300" [href]="'mailto:' + profile.email" (click)="closeMenu()">Contact me</a>
       </div>
-    </div>
-  </div>
-  <div class="relative flex min-h-[31rem] items-end justify-center overflow-hidden bg-zinc-950">
-    <nav class="absolute left-5 right-5 top-6 z-10 flex items-center justify-between gap-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white sm:left-auto sm:right-10 sm:gap-7 sm:text-xs" aria-label="Main navigation">
-      <a class="transition hover:text-zinc-400" href="#education">About me</a><a class="transition hover:text-zinc-400" href="#skills">Skills</a><a class="transition hover:text-zinc-400" href="#projects">Portfolio</a>
-      <a *ngIf="profile.email" class="rounded-full bg-white px-4 py-3 text-[9px] font-black text-zinc-950 transition hover:bg-zinc-300" [href]="'mailto:' + profile.email">Contact me</a>
     </nav>
-    <img *ngIf="profile.image; else imagePlaceholder" class="z-[1] max-h-[88%] w-[90%] object-contain object-bottom drop-shadow-[-18px_0_18px_rgba(0,0,0,0.35)]" [src]="profile.image" [alt]="(profile.full_name || profile.name || 'Profile') + ' portrait'">
-    <ng-template #imagePlaceholder><div class="grid aspect-[.72] w-72 place-items-center rounded-t-full bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-950 text-6xl font-bold text-zinc-300 sm:w-96">{{ initials }}</div></ng-template>
   </div>
-</section>
+</header>

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 import { EducationComponent } from './components/education/education.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
@@ -15,6 +16,7 @@ import { PortfolioApiService } from './services/portfolio-api.service';
   imports: [
     CommonModule,
     NavbarComponent,
+    HomeComponent,
     EducationComponent,
     ProjectsComponent,
     SkillsSectionComponent
