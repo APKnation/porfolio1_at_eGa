@@ -20,31 +20,8 @@ import { PortfolioApiService } from './services/portfolio-api.service';
     SkillsSectionComponent
   ],
 
-  template: `
-    <div class="min-h-screen bg-slate-950 text-slate-100">
-      <app-navbar
-        [profile]="profile">
-      </app-navbar>
-
-      <main class="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
-        <p *ngIf="apiError" class="rounded-xl border border-rose-400/50 bg-rose-950/50 px-4 py-3 text-sm text-rose-100" role="alert">
-          {{ apiError }}
-        </p>
-
-        <app-education
-          [experiences]="profile.experiences">
-        </app-education>
-
-        <app-projects
-          [projects]="profile.projects">
-        </app-projects>
-
-        <skills-section
-          [skills]="profile.skills">
-        </skills-section>
-      </main>
-    </div>
-  `
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
 

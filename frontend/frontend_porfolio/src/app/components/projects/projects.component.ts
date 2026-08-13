@@ -7,7 +7,7 @@ import { Project } from '../../models/portfolio.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './projects.component.html',
-  styles: [`:host { display: block; }`]
+  styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
   @Input() projects: Project[] = [];

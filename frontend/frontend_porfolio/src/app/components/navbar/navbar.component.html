@@ -1,10 +1,24 @@
-<header class="bg-slate-950 text-slate-100">
-	<div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 lg:px-8">
-		<div class="space-y-4">
-			<p class="text-sm font-semibold uppercase tracking-[0.28em] text-sky-400">Software portfolio</p>
-			<h1 class="text-4xl font-semibold sm:text-5xl">{{ profile?.full_name || profile?.name || 'Your name' }}</h1>
-			<p class="text-lg text-slate-300">{{ profile?.title }}</p>
-			<p class="max-w-3xl text-slate-400" *ngIf="profile?.bio">{{ profile?.bio }}</p>
-		</div>
-	</div>
-</header>
+<section class="hero">
+  <div class="hero-copy">
+    <a class="brand" href="#top" aria-label="Home">{{ initials }}</a>
+    <div class="intro">
+      <p class="greeting">Hello, I am</p>
+      <h1>{{ profile.full_name || profile.name || 'Your name' }}</h1>
+      <p class="role">{{ profile.title || 'Your professional title' }}</p>
+      <p *ngIf="profile.bio" class="bio">{{ profile.bio }}</p>
+      <div class="social-links" aria-label="Social links">
+        <a *ngIf="profile.linkedin" [href]="profile.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+        <a *ngIf="profile.github" [href]="profile.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
+        <a *ngIf="profile.website" [href]="profile.website" target="_blank" rel="noopener noreferrer" aria-label="Personal website">↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <nav aria-label="Main navigation">
+      <a href="#education">About me</a><a href="#skills">Skills</a><a href="#projects">Portfolio</a>
+      <a *ngIf="profile.email" class="contact" [href]="'mailto:' + profile.email">Contact me</a>
+    </nav>
+    <img *ngIf="profile.image; else imagePlaceholder" [src]="profile.image" [alt]="(profile.full_name || profile.name || 'Profile') + ' portrait'">
+    <ng-template #imagePlaceholder><div class="image-placeholder" aria-label="Profile image placeholder">{{ initials }}</div></ng-template>
+  </div>
+</section>

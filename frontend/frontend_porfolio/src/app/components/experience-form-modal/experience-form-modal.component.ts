@@ -5,14 +5,8 @@ import { Component, Input } from '@angular/core';
   selector: 'experience-form-modal',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div *ngIf="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4">
-      <div class="w-full max-w-2xl rounded-[2rem] bg-white p-6 shadow-2xl ring-1 ring-slate-200">
-        <h3 class="text-xl font-semibold text-slate-950">Experience content is read-only here</h3>
-        <p class="mt-1 text-sm text-slate-500">Experience entries are managed by a Django superuser.</p>
-      </div>
-    </div>
-  `
+  templateUrl: './experience-form-modal.component.html',
+  styleUrls: ['./experience-form-modal.component.css']
 })
 export class ExperienceFormModalComponent {
   @Input() isOpen = false;
