@@ -36,11 +36,11 @@
   </div>
 
   <!-- ═══════════════════════════════════════════════
-       LAYER 3 — CENTERED PROFILE PHOTO
-       Photo sits in the middle at z-10, between text layers
+       LAYER 3 — PROFILE PHOTO (Shifted Right)
+       Photo sits on the right side at z-10, between text layers
        Gradient foot fades into primary background
        ═══════════════════════════════════════════════ -->
-  <div class="absolute inset-x-0 bottom-0 top-[22%] z-10 flex justify-center items-end">
+  <div class="absolute inset-x-0 bottom-0 top-[22%] z-10 flex justify-center md:justify-end items-end md:pr-[10%] lg:pr-[15%]">
 
     <!-- Image present -->
     <ng-container *ngIf="profile.image; else photoPlaceholder">
