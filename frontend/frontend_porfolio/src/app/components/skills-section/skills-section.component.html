@@ -1,11 +1,1 @@
-<section class="mb-10" id="skills">
-  <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
-    <h2 class="text-3xl font-semibold tracking-tight text-slate-950">Skills</h2>
-  </div>
-  <div *ngIf="skills.length; else emptyState" class="flex flex-wrap gap-3">
-    <span *ngFor="let skill of skills" class="rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700">{{ skill.name }}<span *ngIf="skill.level"> · {{ skill.level }}</span></span>
-  </div>
-  <ng-template #emptyState>
-    <p class="text-slate-500">No skills added yet.</p>
-  </ng-template>
-</section>
+<section id="skills" class="bg-zinc-950 px-6 py-20 text-white sm:px-12 lg:px-24 lg:py-28"><div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[32%_1fr]"><div><p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">03 / Toolkit</p><h2 class="mt-5 text-5xl font-bold leading-[.85] tracking-[-0.07em] sm:text-6xl">Skills &<br>tools.</h2></div><div *ngIf="skills.length; else emptyState" class="grid content-start grid-cols-2 gap-px border border-zinc-700 bg-zinc-700 sm:grid-cols-3"><div *ngFor="let skill of skills" class="bg-zinc-950 p-5 transition hover:bg-white hover:text-zinc-950"><p class="font-bold">{{ skill.name }}</p><p *ngIf="skill.level" class="mt-1 text-xs text-zinc-500">{{ skill.level }}</p></div></div><ng-template #emptyState><p class="self-end text-zinc-400">No skills added yet.</p></ng-template></div></section>

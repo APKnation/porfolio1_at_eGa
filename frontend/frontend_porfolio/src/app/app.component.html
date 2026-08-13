@@ -1,13 +1,13 @@
-<div class="min-h-screen bg-slate-950 text-slate-100">
+<div id="top" class="min-h-screen bg-zinc-100 font-sans text-zinc-950">
   <app-navbar [profile]="profile"></app-navbar>
 
-  <main class="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
-    <p *ngIf="apiError" class="rounded-xl border border-rose-400/50 bg-rose-950/50 px-4 py-3 text-sm text-rose-100" role="alert">
+  <main>
+    <p *ngIf="apiError" class="mx-auto my-8 max-w-6xl rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm text-rose-800" role="alert">
       {{ apiError }}
     </p>
 
     <app-education [experiences]="profile.experiences"></app-education>
-    <app-projects [projects]="profile.projects"></app-projects>
+    <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-10"><app-projects [projects]="profile.projects"></app-projects></div>
     <skills-section [skills]="profile.skills"></skills-section>
   </main>
 </div>

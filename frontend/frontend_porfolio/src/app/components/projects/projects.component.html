@@ -1,32 +1,7 @@
-<section class="space-y-8" id="projects">
-  <div class="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/30 sm:p-10">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <h2 class="text-3xl font-semibold text-white">Projects</h2>
-        <p class="mt-3 max-w-2xl text-slate-300">A curated selection of the work that best demonstrates your experience and style.</p>
-      </div>
-    </div>
+<section id="projects">
+  <div class="mb-12 flex flex-col gap-5 border-b border-zinc-300 pb-8 sm:flex-row sm:items-end sm:justify-between"><div><p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">02 / Selected work</p><h2 class="mt-4 text-5xl font-bold tracking-[-0.07em] text-zinc-950 sm:text-6xl">Portfolio.</h2></div><p class="max-w-sm text-sm leading-6 text-zinc-600">A curated selection of projects that demonstrates my process, range, and attention to detail.</p></div>
+  <div *ngIf="projects.length; else emptyState" class="grid gap-px overflow-hidden border border-zinc-300 bg-zinc-300 md:grid-cols-2">
+    <article *ngFor="let project of projects; let index = index" class="group flex min-h-[18rem] flex-col bg-white p-7 transition duration-300 hover:bg-zinc-950 sm:p-9"><p class="text-xs font-black text-zinc-400 group-hover:text-zinc-500">0{{ index + 1 }}</p><h3 class="mt-auto text-3xl font-bold leading-none tracking-[-0.05em] text-zinc-950 group-hover:text-white">{{ project.title }}</h3><p class="mt-4 max-w-md text-sm leading-6 text-zinc-600 group-hover:text-zinc-300">{{ project.description }}</p><a *ngIf="project.url" [href]="project.url" target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex w-fit items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-zinc-950 group-hover:text-white">View project <span class="text-base">↗</span></a></article>
   </div>
-
-  <div *ngIf="projects.length; else emptyState" class="grid gap-6 lg:grid-cols-2">
-    <div *ngFor="let project of projects" class="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-xl shadow-slate-950/10 transition hover:-translate-y-1">
-      <div class="space-y-4">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h5 class="text-xl font-semibold text-white">{{ project.title }}</h5>
-            <p class="mt-2 text-sm text-slate-400">{{ project.description }}</p>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center gap-3">
-          <a *ngIf="project.url" [href]="project.url" target="_blank" class="rounded-full border border-sky-500 bg-sky-500/10 px-4 py-2 text-sm font-medium text-sky-200 transition hover:bg-sky-500/20">View</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <ng-template #emptyState>
-    <div class="rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 text-slate-400 shadow-xl shadow-slate-950/10">
-      No projects added yet.
-    </div>
-  </ng-template>
+  <ng-template #emptyState><div class="border border-dashed border-zinc-300 px-6 py-14 text-center text-zinc-500">No projects added yet.</div></ng-template>
 </section>
