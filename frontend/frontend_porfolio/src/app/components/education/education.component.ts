@@ -17,4 +17,18 @@ export class EducationComponent {
       new Date(b.start_date).getTime() - new Date(a.start_date).getTime()
     );
   }
+
+  /** Entries whose exp_type contains 'education' (case-insensitive) */
+  get educationEntries(): Experience[] {
+    return this.sortedExperiences.filter(e =>
+      (e.exp_type || '').toLowerCase().includes('education')
+    );
+  }
+
+  /** Entries whose exp_type does NOT contain 'education' (work / internship / etc.) */
+  get experienceEntries(): Experience[] {
+    return this.sortedExperiences.filter(e =>
+      !(e.exp_type || '').toLowerCase().includes('education')
+    );
+  }
 }

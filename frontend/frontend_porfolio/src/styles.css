@@ -5,8 +5,8 @@
 
 @layer base {
   ::selection {
-    background-color: #7C3AED;
-    color: #F5F3EE;
+    background-color: #BEFF8D;
+    color: #173E4B;
   }
 
   html {
@@ -17,13 +17,13 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0D0D14;
+    background: #040d10;
   }
   ::-webkit-scrollbar-thumb {
-    background: #7C3AED;
+    background: #BEFF8D;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #9d6aff;
+    background: #a8f570;
   }
 }

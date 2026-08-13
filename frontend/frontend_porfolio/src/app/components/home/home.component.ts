@@ -17,4 +17,17 @@ export class HomeComponent {
     return name.split(/\s+/).filter(Boolean).slice(0, 2).map(part => part[0]).join('').toUpperCase();
   }
 
+  get titleLeft(): string {
+    const title = this.profile.title || 'Creative Professional';
+    const words = title.trim().split(/\s+/);
+    const half = Math.ceil(words.length / 2);
+    return words.slice(0, half).join(' ');
+  }
+
+  get titleRight(): string {
+    const title = this.profile.title || 'Creative Professional';
+    const words = title.trim().split(/\s+/);
+    const half = Math.ceil(words.length / 2);
+    return words.slice(half).join(' ');
+  }
 }
