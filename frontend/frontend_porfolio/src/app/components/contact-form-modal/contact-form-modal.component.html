@@ -1,12 +1,12 @@
 <div
   *ngIf="isOpen"
-  class="fixed inset-0 z-50 flex items-center justify-center bg-primary-950/80 px-4 py-6 backdrop-blur-md"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-primary/80 px-4 py-6 backdrop-blur-md"
 >
   <!-- Modal -->
-  <div class="relative w-full max-w-lg overflow-hidden rounded-3xl border border-primary-700/50 bg-primary-900 shadow-[0_25px_80px_-15px_rgba(124,58,237,0.35)]">
+  <div class="relative w-full max-w-lg overflow-hidden rounded-3xl border border-primary/50 bg-primary shadow-[0_25px_80px_-15px_rgba(124,58,237,0.35)]">
 
     <!-- Decorative gradient -->
-    <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-br from-accent-700 via-accent to-accent-400 opacity-95"></div>
+    <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-br from-accent via-accent to-accent opacity-95"></div>
 
     <!-- Close button -->
     <button
@@ -33,12 +33,12 @@
     </div>
 
     <!-- Contact information -->
-    <div class="space-y-3 bg-primary-950/80 px-7 py-7">
+    <div class="space-y-3 bg-primary/80 px-7 py-7">
 
       <!-- Email -->
       <div
         *ngIf="profile.email"
-        class="group flex items-center gap-4 rounded-2xl border border-primary-700/50 bg-primary-900 p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+        class="group flex items-center gap-4 rounded-2xl border border-primary/50 bg-primary p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
       >
         <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-surface">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="h-5 w-5">
@@ -46,7 +46,7 @@
           </svg>
         </div>
         <div class="min-w-0">
-          <p class="text-xs font-semibold uppercase tracking-wider text-surface-500">Email</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-surface">Email</p>
           <p class="mt-1 truncate font-medium text-surface">{{ profile.email }}</p>
         </div>
       </div>
@@ -54,7 +54,7 @@
       <!-- Phone -->
       <div
         *ngIf="profile.phone"
-        class="group flex items-center gap-4 rounded-2xl border border-primary-700/50 bg-primary-900 p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+        class="group flex items-center gap-4 rounded-2xl border border-primary/50 bg-primary p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
       >
         <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-surface">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="h-5 w-5">
@@ -62,7 +62,7 @@
           </svg>
         </div>
         <div class="min-w-0">
-          <p class="text-xs font-semibold uppercase tracking-wider text-surface-500">Phone</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-surface">Phone</p>
           <p class="mt-1 font-medium text-surface">{{ profile.phone }}</p>
         </div>
       </div>
@@ -70,7 +70,7 @@
       <!-- Location -->
       <div
         *ngIf="profile.location"
-        class="group flex items-center gap-4 rounded-2xl border border-primary-700/50 bg-primary-900 p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
+        class="group flex items-center gap-4 rounded-2xl border border-primary/50 bg-primary p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md"
       >
         <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-surface">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="h-5 w-5">
@@ -79,7 +79,7 @@
           </svg>
         </div>
         <div class="min-w-0">
-          <p class="text-xs font-semibold uppercase tracking-wider text-surface-500">Location</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-surface">Location</p>
           <p class="mt-1 font-medium text-surface">{{ profile.location }}</p>
         </div>
       </div>
@@ -87,20 +87,20 @@
       <!-- Empty state -->
       <div
         *ngIf="!profile.email && !profile.phone && !profile.location"
-        class="rounded-2xl border border-dashed border-primary-700 bg-primary-900 p-8 text-center"
+        class="rounded-2xl border border-dashed border-primary bg-primary p-8 text-center"
       >
-        <p class="text-sm font-medium text-surface-400">No contact information available.</p>
-        <p class="mt-1 text-xs text-surface-600">Contact details have not been added yet.</p>
+        <p class="text-sm font-medium text-surface">No contact information available.</p>
+        <p class="mt-1 text-xs text-surface">Contact details have not been added yet.</p>
       </div>
     </div>
 
     <!-- Footer -->
-    <div class="flex items-center justify-between border-t border-primary-700/50 bg-primary-950/60 px-7 py-5">
-      <p class="text-xs text-surface-600">Managed securely</p>
+    <div class="flex items-center justify-between border-t border-primary/50 bg-primary/60 px-7 py-5">
+      <p class="text-xs text-surface">Managed securely</p>
       <button
         type="button"
         (click)="isOpen = false"
-        class="rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-surface shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-400 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-primary-900"
+        class="rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-surface shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-primary"
       >
         Close
       </button>

@@ -38,7 +38,6 @@ export class EducationComponent {
         name:  edu?.primary_school_name   || null,
         from:  edu?.primary_start_year    || null,
         to:    edu?.primary_end_year      || null,
-        icon:  '🏫',
       },
       {
         label: 'Secondary',
@@ -46,7 +45,6 @@ export class EducationComponent {
         name:  edu?.secondary_school_name || null,
         from:  edu?.secondary_start_year  || null,
         to:    edu?.secondary_end_year    || null,
-        icon:  '📚',
       },
       {
         label: 'Adv. Secondary',
@@ -54,7 +52,6 @@ export class EducationComponent {
         name:  edu?.advanced_secondary_school_name || null,
         from:  edu?.advanced_secondary_start_year  || null,
         to:    edu?.advanced_secondary_end_year    || null,
-        icon:  '🎓',
       },
       {
         label: 'University',
@@ -63,7 +60,6 @@ export class EducationComponent {
         sub:   edu?.university_field  || null,
         from:  edu?.university_start_year || null,
         to:    edu?.university_is_current ? 'Present' : (edu?.university_end_year || null),
-        icon:  '🏛️',
       },
     ];
   }
