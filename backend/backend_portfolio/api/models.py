@@ -49,3 +49,20 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Education(models.Model):
+    profile = models.ForeignKey(Profile, related_name='educations', on_delete=models.CASCADE)
+    institution = models.CharField(max_length=200)
+    degree = models.CharField(max_length=200)
+    field_of_study = models.CharField(max_length=200, blank=True)
+    description = models.TextField(blank=True)
+    start_date = models.CharField(max_length=50, blank=True)
+    end_date = models.CharField(max_length=50, blank=True)
+    is_current = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-start_date']
+
+    def __str__(self):
+        return f"{self.degree} @ {self.institution}"
