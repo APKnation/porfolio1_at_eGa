@@ -9,7 +9,7 @@ module.exports = {
         surface: '#F9ECE5',
       },
       fontFamily: {
-        sans: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Tinos', 'serif'],
       },
     },
   },
