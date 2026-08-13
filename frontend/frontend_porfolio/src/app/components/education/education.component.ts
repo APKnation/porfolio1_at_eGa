@@ -7,57 +7,58 @@ import { Experience } from '../../models/portfolio.model';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="space-y-8" id="education">
-      <div class="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
+    <section class="education-section" id="education">
+      <header class="section-heading">
+        <p class="section-index">01 / Background</p>
         <div>
-          <h2 class="text-3xl font-semibold text-slate-950">🎓 Education & Experience</h2>
-          <p class="mt-2 max-w-2xl text-slate-600">Record your education and work experience to highlight your most meaningful achievements.</p>
+          <h2>Education &<br>experience.</h2>
+          <p>Where I have learned, built, and made an impact.</p>
         </div>
-      </div>
+      </header>
 
-      <div *ngIf="experiences.length; else emptyState" class="space-y-4">
-        <div *ngFor="let exp of sortedExperiences" class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/40 transition hover:-translate-y-0.5">
-          <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-            <div class="space-y-1">
-              <h3 class="text-xl font-semibold text-slate-950">{{ exp.title }}</h3>
-              <p class="text-sm text-slate-500">{{ exp.organization }}</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-700">{{ exp.exp_type }}</span>
-            </div>
+      <div *ngIf="experiences.length; else emptyState" class="timeline">
+        <article *ngFor="let exp of sortedExperiences; let index = index" class="timeline-entry">
+          <div class="entry-number">0{{ index + 1 }}</div>
+          <div class="entry-date">
+            {{ exp.start_date }}<span>—</span>{{ exp.is_current ? 'Present' : exp.end_date }}
           </div>
-
-          <p class="text-slate-600">{{ exp.description }}</p>
-          <p class="mt-3 text-sm text-slate-500">
-            📅 {{ exp.start_date | date:'MMM yyyy' }} —
-            {{ exp.is_current ? 'Present' : (exp.end_date | date:'MMM yyyy') }}
-          </p>
-        </div>
+          <div class="entry-content">
+            <p class="entry-type">{{ exp.exp_type || 'Experience' }}</p>
+            <h3>{{ exp.title }}</h3>
+            <p class="organisation">{{ exp.organization }}</p>
+            <p *ngIf="exp.description" class="description">{{ exp.description }}</p>
+          </div>
+        </article>
       </div>
 
       <ng-template #emptyState>
-        <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 text-slate-600">
-          No education or experience entries yet.
+        <div class="empty-state">
+          <span>+</span>
+          <p>No education or experience entries yet.</p>
         </div>
       </ng-template>
     </section>
   `,
   styles: [`
-    :host { display: block; }
-    .timeline { position: relative; padding-left: 24px; }
-    .timeline::before {
-      content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px;
-      width: 2px; background: #dee2e6;
-    }
-    .timeline-item { position: relative; }
-    .timeline-item::before {
-      content: ''; position: absolute; left: -22px; top: 20px;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: #0d6efd; border: 2px solid #fff;
-      box-shadow: 0 0 0 2px #0d6efd;
-    }
-    .card { transition: transform 0.2s, box-shadow 0.2s; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important; }
+    :host { display: block; color: #111; }
+    .education-section { overflow: hidden; background: #e0e0df; }
+    .section-heading { display: grid; grid-template-columns: minmax(9rem, 28%) 1fr; gap: 2rem; padding: clamp(2.5rem, 7vw, 6rem); border-bottom: 1px solid #aaa; }
+    .section-index, .entry-type { margin: 0; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(3rem, 7vw, 6.7rem); font-weight: 700; letter-spacing: -.075em; line-height: .84; }
+    .section-heading div > p { max-width: 28rem; margin: 1.6rem 0 0; color: #555; line-height: 1.55; }
+    .timeline-entry { display: grid; grid-template-columns: minmax(4rem, 12%) minmax(10rem, 24%) 1fr; gap: 1.5rem; padding: 2.25rem clamp(2.5rem, 7vw, 6rem); border-bottom: 1px solid #aaa; transition: background .2s; }
+    .timeline-entry:hover { background: #111; color: #fff; }
+    .entry-number { font-size: .78rem; font-weight: 800; }
+    .entry-date { display: flex; flex-direction: column; gap: .2rem; color: #555; font-size: .78rem; font-weight: 700; line-height: 1.3; }
+    .timeline-entry:hover .entry-date, .timeline-entry:hover .organisation, .timeline-entry:hover .description { color: #bbb; }
+    .entry-content { max-width: 45rem; }
+    .entry-type { margin-bottom: .65rem; color: #686868; }
+    h3 { margin: 0; font-size: clamp(1.55rem, 3vw, 2.7rem); letter-spacing: -.045em; line-height: 1; }
+    .organisation { margin: .55rem 0 0; color: #555; font-weight: 700; }
+    .description { margin: 1rem 0 0; color: #4f4f4f; line-height: 1.6; }
+    .empty-state { display: flex; align-items: center; gap: 1rem; min-height: 13rem; padding: 2.5rem; border-bottom: 1px solid #aaa; color: #555; }
+    .empty-state span { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 1px solid #888; color: #111; font-size: 1.5rem; }
+    @media (max-width: 640px) { .section-heading { grid-template-columns: 1fr; gap: 2rem; } .timeline-entry { grid-template-columns: 3rem 1fr; gap: 1rem; } .entry-date { grid-column: 2; flex-direction: row; } .entry-content { grid-column: 2; } }
   `]
 })
 export class EducationComponent {

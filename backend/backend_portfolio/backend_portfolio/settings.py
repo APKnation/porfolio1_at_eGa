@@ -120,7 +120,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # User-uploaded profile images are stored separately from static assets.
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
