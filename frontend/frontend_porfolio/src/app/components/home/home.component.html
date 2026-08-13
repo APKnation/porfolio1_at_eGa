@@ -1,34 +1,39 @@
-<section class="bg-zinc-200 px-4 pb-6 pt-0 sm:px-8 sm:pb-10">
-  <div class="mx-auto grid min-h-[32rem] max-w-6xl overflow-hidden bg-white shadow-sm md:min-h-[31rem] md:grid-cols-[1.2fr_.8fr]">
-    <div class="flex flex-col justify-center px-8 py-14 sm:px-12 md:py-16 lg:px-16">
-      <p class="text-sm font-medium text-cyan-600">Welcome to my site</p>
+<section class="relative overflow-hidden bg-slate-50 px-4 py-8 sm:px-8 sm:py-10 lg:py-14">
+  <div class="absolute inset-x-0 top-0 h-80 bg-gradient-to-br from-cyan-100 via-slate-50 to-transparent"></div>
+  <div class="relative mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_30px_80px_-40px_rgba(15,23,42,0.35)] lg:min-h-[590px] lg:grid-cols-[1.05fr_.95fr]">
+    <div class="flex flex-col px-7 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16">
+      <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-slate-500"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Available for opportunities</div>
 
-      <h1 class="mt-5 max-w-xl text-4xl font-bold leading-[1.05] tracking-[-0.045em] text-cyan-600 sm:text-5xl">
-        Hi, I’m {{ profile.full_name || profile.name || 'Your name' }}, a<br class="hidden sm:block">
-        <span class="text-zinc-800">{{ profile.title || 'creative professional' }}</span>
-      </h1>
+      <div class="my-auto max-w-2xl py-12 lg:py-8">
+        <p class="text-base font-semibold text-cyan-700">Hello, I’m</p>
+        <h1 class="mt-4 text-5xl font-black leading-[.92] tracking-[-0.07em] text-slate-950 sm:text-6xl lg:text-7xl">{{ profile.full_name || profile.name || 'Your name' }}</h1>
+        <p class="mt-5 text-xl font-bold tracking-[-0.025em] text-cyan-700 sm:text-2xl">{{ profile.title || 'Creative professional' }}</p>
+        <p *ngIf="profile.bio" class="mt-6 max-w-xl text-base leading-7 text-slate-600">{{ profile.bio }}</p>
+        <p *ngIf="!profile.bio" class="mt-6 max-w-xl text-base leading-7 text-slate-600">I turn ideas into focused, useful digital experiences through thoughtful design and dependable implementation.</p>
 
-      <p *ngIf="profile.bio" class="mt-6 max-w-md text-sm leading-6 text-zinc-700">{{ profile.bio }}</p>
-      <p *ngIf="!profile.bio" class="mt-6 max-w-md text-sm leading-6 text-zinc-700">I create thoughtful digital experiences with a focus on clean design, practical solutions, and measurable impact.</p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a *ngIf="profile.email" [href]="'mailto:' + profile.email" class="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-slate-900/15 transition hover:-translate-y-0.5 hover:bg-cyan-600">Start a conversation <span aria-hidden="true">↗</span></a>
+          <a href="#projects" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-800 transition hover:-translate-y-0.5 hover:border-cyan-500 hover:text-cyan-700">Explore my work <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
 
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a *ngIf="profile.email" [href]="'mailto:' + profile.email" class="rounded bg-cyan-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-cyan-700">Hire me!</a>
-        <a href="#projects" class="rounded border border-cyan-600 px-5 py-2.5 text-sm font-bold text-cyan-700 transition hover:bg-cyan-50">See my projects</a>
+      <div class="flex flex-wrap gap-6 border-t border-slate-200 pt-6 text-sm">
+        <div><p class="font-black text-slate-950">{{ profile.projects.length || '0' }}+</p><p class="mt-1 text-slate-500">Projects</p></div>
+        <div><p class="font-black text-slate-950">{{ profile.skills.length || '0' }}+</p><p class="mt-1 text-slate-500">Skills</p></div>
+        <div *ngIf="profile.location"><p class="font-black text-slate-950">Based in</p><p class="mt-1 text-slate-500">{{ profile.location }}</p></div>
       </div>
     </div>
 
-    <div class="relative flex min-h-[23rem] items-center justify-center overflow-hidden bg-cyan-50 px-8 py-10 md:min-h-0">
-      <div class="absolute left-8 top-12 h-40 w-40 bg-cyan-200 sm:h-52 sm:w-52"></div>
-      <img
-        *ngIf="profile.image; else imagePlaceholder"
-        class="relative z-10 h-64 w-64 object-cover shadow-xl sm:h-80 sm:w-80"
-        [src]="profile.image"
-        [alt]="(profile.full_name || profile.name || 'Profile') + ' portrait'"
-      >
-      <ng-template #imagePlaceholder>
-        <div class="relative z-10 grid h-64 w-64 place-items-center bg-cyan-600 text-6xl font-bold text-white shadow-xl sm:h-80 sm:w-80">{{ initials }}</div>
-      </ng-template>
-      <div class="absolute bottom-0 right-0 h-24 w-24 rounded-tl-[6rem] border-l-[10px] border-t-[10px] border-white bg-cyan-600 sm:h-32 sm:w-32"></div>
+    <div class="relative flex min-h-[24rem] items-end justify-center overflow-hidden bg-slate-950 px-8 pt-16 sm:min-h-[31rem] lg:min-h-0">
+      <div class="absolute -right-24 -top-24 h-80 w-80 rounded-full border-[30px] border-cyan-400/20"></div><div class="absolute bottom-10 left-8 text-[9rem] font-black leading-none tracking-[-.15em] text-white/[.04]">{{ initials }}</div>
+      <div class="absolute left-7 top-7 z-10 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur">Portfolio 2026</div>
+      <img *ngIf="profile.image; else imagePlaceholder" class="relative z-10 h-[22rem] w-[18rem] rounded-t-[9rem] object-cover object-top shadow-2xl shadow-black/40 sm:h-[28rem] sm:w-[23rem]" [src]="profile.image" [alt]="(profile.full_name || profile.name || 'Profile') + ' portrait'">
+      <ng-template #imagePlaceholder><div class="relative z-10 grid h-[22rem] w-[18rem] place-items-center rounded-t-[9rem] bg-gradient-to-b from-cyan-400 to-cyan-700 text-7xl font-black text-white shadow-2xl shadow-black/40 sm:h-[28rem] sm:w-[23rem]">{{ initials }}</div></ng-template>
+      <div class="absolute bottom-8 right-8 z-20 flex gap-2">
+        <a *ngIf="profile.linkedin" [href]="profile.linkedin" target="_blank" rel="noopener noreferrer" class="grid h-10 w-10 place-items-center rounded-full bg-white text-xs font-black text-slate-950 transition hover:bg-cyan-400" aria-label="LinkedIn">in</a>
+        <a *ngIf="profile.github" [href]="profile.github" target="_blank" rel="noopener noreferrer" class="grid h-10 w-10 place-items-center rounded-full bg-white text-xs font-black text-slate-950 transition hover:bg-cyan-400" aria-label="GitHub">gh</a>
+        <a *ngIf="profile.website" [href]="profile.website" target="_blank" rel="noopener noreferrer" class="grid h-10 w-10 place-items-center rounded-full bg-white text-base font-black text-slate-950 transition hover:bg-cyan-400" aria-label="Website">↗</a>
+      </div>
     </div>
   </div>
 </section>

@@ -15,14 +15,4 @@ export class NavbarComponent {
     projects: [],
     skills: []
   };
-  isMenuOpen = false;
-
-  closeMenu(): void {
-    this.isMenuOpen = false;
-  }
-
-  get initials(): string {
-    const name = this.profile.full_name || this.profile.name || 'P';
-    return name.split(/\s+/).filter(Boolean).slice(0, 2).map(part => part[0]).join('').toUpperCase();
-  }
 }
