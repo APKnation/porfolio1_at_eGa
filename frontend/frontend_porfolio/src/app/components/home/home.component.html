@@ -36,67 +36,53 @@
   </div>
 
   <!-- ═══════════════════════════════════════════════
-       LAYER 3 — PROFILE PHOTO (Shifted Right)
-       Photo sits on the right side at z-10, between text layers
-       Gradient foot fades into primary background
+       LAYER 3 & 4 COMBINED — INFO BLOCK + PHOTO
        ═══════════════════════════════════════════════ -->
-  <div class="absolute inset-x-0 bottom-0 top-[22%] z-10 flex justify-center md:justify-end items-end md:pr-[10%] lg:pr-[15%]">
+  <div class="absolute bottom-8 left-6 z-30 sm:bottom-12 sm:left-10 lg:bottom-14 lg:left-14 flex flex-col-reverse sm:flex-row sm:items-end gap-6 sm:gap-10 max-w-[800px]">
+    
+    <!-- INFO BLOCK -->
+    <div class="max-w-[300px] sm:max-w-[350px]">
+      <!-- 10% ACCENT — availability badge pill -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-surface/20 bg-primary/70 px-4 py-1.5 backdrop-blur-sm">
+        <span class="h-2 w-2 rounded-full bg-accent animate-pulse flex-shrink-0"></span>
+        <span class="text-[11px] font-semibold tracking-wide text-surface/75">Open for opportunities</span>
+      </div>
 
-    <!-- Image present -->
+      <!-- 20% SURFACE — bio text -->
+      <p class="mt-4 text-sm leading-[1.7] text-surface/60">
+        {{ profile.bio || 'Hey there! I\'m a designer &amp; developer working in the global marketplace.' }}
+      </p>
+
+      <!-- 10% ACCENT — CTA button (outline style keeps accent minimal) -->
+      <a *ngIf="profile.email" [href]="'mailto:' + profile.email"
+         class="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/60 bg-transparent px-5 py-2.5 text-sm font-semibold text-surface/90 transition-all duration-200 hover:bg-accent hover:text-primary hover:border-accent">
+        Schedule a Call
+      </a>
+      <!-- Fallback button if no email -->
+      <a *ngIf="!profile.email" href="#education"
+         class="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/60 bg-transparent px-5 py-2.5 text-sm font-semibold text-surface/90 transition-all duration-200 hover:bg-accent hover:text-primary hover:border-accent">
+        View Work
+      </a>
+    </div>
+
+    <!-- PROFILE PHOTO (Cropped to head, 100% visible) -->
     <ng-container *ngIf="profile.image; else photoPlaceholder">
-      <div class="relative h-full flex items-end justify-center">
+      <div class="h-32 w-32 sm:h-40 sm:w-40 flex-shrink-0 overflow-hidden rounded-3xl border border-surface/20 bg-primary/50 shadow-2xl">
         <img
           [src]="profile.image"
           [alt]="(profile.full_name || profile.name || 'Profile') + ' portrait'"
-          class="h-[95%] w-auto max-w-[360px] sm:max-w-[440px] object-cover object-top select-none"
-          style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-                 -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"
+          class="h-full w-full object-cover object-top"
         >
-        <!-- Bottom fade into bg -->
-        <div class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-primary to-transparent pointer-events-none"></div>
       </div>
     </ng-container>
 
-    <!-- No image — initials placeholder -->
+    <!-- No image placeholder -->
     <ng-template #photoPlaceholder>
-      <div class="relative flex h-[80%] w-[280px] sm:w-[340px] items-end justify-center overflow-hidden">
-        <div class="h-full w-full flex items-center justify-center bg-primary text-surface/10"
-             style="font-size: clamp(6rem, 20vw, 14rem); font-weight: 900; line-height: 1;">
-          {{ initials }}
-        </div>
-        <!-- Bottom fade -->
-        <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-primary to-transparent"></div>
+      <div class="h-32 w-32 sm:h-40 sm:w-40 flex-shrink-0 overflow-hidden rounded-3xl border border-surface/20 bg-primary/50 shadow-2xl flex items-center justify-center text-surface/20 text-4xl font-black">
+        {{ initials }}
       </div>
     </ng-template>
-  </div>
 
-  <!-- ═══════════════════════════════════════════════
-       LAYER 4 — BOTTOM-LEFT INFO BLOCK
-       20% SURFACE text + 10% ACCENT badge & button
-       ═══════════════════════════════════════════════ -->
-  <div class="absolute bottom-8 left-6 z-30 sm:bottom-12 sm:left-10 lg:bottom-14 lg:left-14 max-w-[300px]">
-
-    <!-- 10% ACCENT — availability badge pill -->
-    <div class="inline-flex items-center gap-2 rounded-full border border-surface/20 bg-primary/70 px-4 py-1.5 backdrop-blur-sm">
-      <span class="h-2 w-2 rounded-full bg-accent animate-pulse flex-shrink-0"></span>
-      <span class="text-[11px] font-semibold tracking-wide text-surface/75">Open for opportunities</span>
-    </div>
-
-    <!-- 20% SURFACE — bio text -->
-    <p class="mt-4 text-sm leading-[1.7] text-surface/60 max-w-[250px]">
-      {{ profile.bio || 'Hey there! I\'m a designer &amp; developer working in the global marketplace.' }}
-    </p>
-
-    <!-- 10% ACCENT — CTA button (outline style keeps accent minimal) -->
-    <a *ngIf="profile.email" [href]="'mailto:' + profile.email"
-       class="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/60 bg-transparent px-5 py-2.5 text-sm font-semibold text-surface/90 transition-all duration-200 hover:bg-accent hover:text-primary hover:border-accent">
-      Schedule a Call
-    </a>
-    <!-- Fallback button if no email -->
-    <a *ngIf="!profile.email" href="#education"
-       class="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/60 bg-transparent px-5 py-2.5 text-sm font-semibold text-surface/90 transition-all duration-200 hover:bg-accent hover:text-primary hover:border-accent">
-      View Work
-    </a>
   </div>
 
   <!-- ═══════════════════════════════════════════════
