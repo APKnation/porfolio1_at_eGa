@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Experience, Project, Skill, Education
+from .models import Profile, Experience, Project, Skill, Education, ContactMessage
 
 
 @admin.register(Profile)
@@ -38,3 +38,11 @@ class EducationAdmin(admin.ModelAdmin):
         ('Advanced Secondary (A-Level)', {'fields': ('advanced_secondary_school_name', 'advanced_secondary_start_year', 'advanced_secondary_end_year')}),
         ('University / College', {'fields': ('university_name', 'university_degree', 'university_field', 'university_start_year', 'university_end_year', 'university_is_current')}),
     )
+
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject', 'created_at')
+    search_fields = ('name', 'email', 'subject', 'message')
+    readonly_fields = ('created_at',)
+    list_filter = ('created_at',)

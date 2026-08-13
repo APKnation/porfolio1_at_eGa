@@ -1,7 +1,7 @@
-from rest_framework import viewsets
-from rest_framework.permissions import BasePermission, SAFE_METHODS
-from .models import Profile, Experience, Project, Skill, Education
-from .serializers import ProfileSerializer, ExperienceSerializer, ProjectSerializer, SkillSerializer, EducationSerializer
+from rest_framework import viewsets, generics
+from rest_framework.permissions import BasePermission, SAFE_METHODS, AllowAny
+from .models import Profile, Experience, Project, Skill, Education, ContactMessage
+from .serializers import ProfileSerializer, ExperienceSerializer, ProjectSerializer, SkillSerializer, EducationSerializer, ContactMessageSerializer
 
 
 class SuperAdminOrReadOnly(BasePermission):
@@ -39,3 +39,9 @@ class EducationViewSet(viewsets.ModelViewSet):
     queryset = Education.objects.all()
     serializer_class = EducationSerializer
     permission_classes = [SuperAdminOrReadOnly]
+
+
+class ContactMessageCreateView(generics.CreateAPIView):
+    queryset = ContactMessage.objects.all()
+    serializer_class = ContactMessageSerializer
+    permission_classes = [AllowAny]

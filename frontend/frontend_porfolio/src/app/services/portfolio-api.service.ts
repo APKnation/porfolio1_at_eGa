@@ -10,4 +10,5 @@ export class PortfolioApiService {
   constructor(private readonly http: HttpClient) {}
 
   getProfiles(): Observable<Profile[]> { return this.http.get<Profile[]>(`${this.apiUrl}/profiles/`); }
+  sendMessage(data: any): Observable<any> { return this.http.post(`${this.apiUrl}/contact/`, data); }
 }
