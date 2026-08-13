@@ -23,10 +23,6 @@
     <!-- RIGHT SIDE: Image & Floating Elements -->
     <div class="relative flex justify-center items-end h-[350px] sm:h-[500px] lg:h-[750px] w-full mt-8 lg:mt-0">
       
-      <!-- Faint circular background effect (using our 3 colors) -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] lg:w-[550px] lg:h-[550px] rounded-full border border-surface/10 bg-surface/5"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] sm:w-[600px] sm:h-[600px] lg:w-[750px] lg:h-[750px] rounded-full border border-surface/5 border-dashed"></div>
-      
       <!-- Person cutout / photo -->
       <ng-container *ngIf="profile.image; else photoPlaceholder">
         <div class="relative z-10 h-[80%] w-[85%] sm:h-[85%] sm:w-[75%] max-w-[450px] lg:max-w-[500px] overflow-hidden rounded-[3rem] sm:rounded-[5rem] border-[6px] border-surface/10 shadow-2xl bg-surface/5 flex items-center justify-center">
