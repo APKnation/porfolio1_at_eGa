@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import BasePermission, SAFE_METHODS
-from .models import Profile, Experience, Project, Skill
-from .serializers import ProfileSerializer, ExperienceSerializer, ProjectSerializer, SkillSerializer
+from .models import Profile, Experience, Project, Skill, Education
+from .serializers import ProfileSerializer, ExperienceSerializer, ProjectSerializer, SkillSerializer, EducationSerializer
 
 
 class SuperAdminOrReadOnly(BasePermission):
@@ -32,4 +32,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
 class SkillViewSet(viewsets.ModelViewSet):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+    permission_classes = [SuperAdminOrReadOnly]
+
+
+class EducationViewSet(viewsets.ModelViewSet):
+    queryset = Education.objects.all()
+    serializer_class = EducationSerializer
     permission_classes = [SuperAdminOrReadOnly]
