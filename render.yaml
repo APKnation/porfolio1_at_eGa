@@ -1,20 +1,29 @@
 services:
+  # ── Django REST API (Backend) ─────────────────────────────────────────────
   - type: web
     name: portfolio-backend
     runtime: python
-    # Render runs commands from the repo root, so we cd into the Django project
-    buildCommand: pip install -r requirements.txt && cd backend/backend_portfolio && python manage.py collectstatic --no-input && python manage.py migrate
+    buildCommand: pip install -r requirements.txt && cd backend/backend_portfolio && python manage.py collectstatic --no-input && python manage.py migrate && python manage.py create_default_superuser
     startCommand: cd backend/backend_portfolio && gunicorn backend_portfolio.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
-      - key: PYTHON_VERSION
-        value: "3.11"          # use a stable release; 3.14 is pre-release
       - key: DJANGO_SETTINGS_MODULE
         value: backend_portfolio.settings
       - key: SECRET_KEY
-        generateValue: true    # Render auto-generates a secure random value
+        generateValue: true
       - key: DEBUG
         value: "False"
       - key: ALLOWED_HOSTS
         value: ".onrender.com"
       - key: WEB_CONCURRENCY
         value: "2"
+
+  # ── Angular Frontend (Static Site) ───────────────────────────────────────
+  - type: web
+    name: portfolio-frontend
+    runtime: static
+    buildCommand: cd frontend/frontend_porfolio && npm install && npm run build
+    staticPublishPath: frontend/frontend_porfolio/dist/frontend_porfolio
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

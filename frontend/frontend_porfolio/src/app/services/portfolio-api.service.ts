@@ -5,7 +5,7 @@ import { Profile } from '../models/portfolio.model';
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioApiService {
-  private readonly apiUrl = 'http://127.0.0.1:8000/api';
+  private readonly apiUrl = 'https://apknation-portfolio.onrender.com/api';
 
   constructor(private readonly http: HttpClient) {}
 
