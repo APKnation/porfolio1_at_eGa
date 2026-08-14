@@ -33,6 +33,7 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 # Comma-separated list of allowed hosts from the environment, e.g. ".onrender.com,localhost"
 _raw_hosts = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1')
 ALLOWED_HOSTS = [h.strip() for h in _raw_hosts.split(',') if h.strip()]
+ALLOWED_HOSTS.append('apknation-portfolio.onrender.com')
 
 
 # Application definition
