@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +21,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z7z#nko5qmlum3we#k$v)zyi-r6azj%2ngr_o6d8kw=309a=x!'
+# Read from environment in production; fall back to insecure default for local dev only.
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-z7z#nko5qmlum3we#k$v)zyi-r6azj%2ngr_o6d8kw=309a=x!'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+# Comma-separated list of allowed hosts from the environment, e.g. ".onrender.com,localhost"
+_raw_hosts = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1')
+ALLOWED_HOSTS = [h.strip() for h in _raw_hosts.split(',') if h.strip()]
 
 
 # Application definition
@@ -117,7 +124,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # User-uploaded profile images are stored separately from static assets.
 MEDIA_URL = '/media/'
