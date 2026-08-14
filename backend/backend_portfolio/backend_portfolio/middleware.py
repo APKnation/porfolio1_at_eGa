@@ -1,11 +1,15 @@
 class CorsMiddleware:
     """Allow the Angular frontend (dev + production) to call the API."""
 
-    ALLOWED_ORIGINS = {
-        'http://localhost:4200',
-        'http://127.0.0.1:4200',
-        'https://apknationporfolio.onrender.com',
-    }
+    def _is_allowed(self, origin):
+        if origin in {
+            'http://localhost:4200',
+            'http://127.0.0.1:4200',
+        }:
+            return True
+        if origin.endswith('.onrender.com'):
+            return True
+        return False
 
     def __init__(self, get_response):
         self.get_response = get_response
@@ -14,7 +18,7 @@ class CorsMiddleware:
         origin = request.headers.get('Origin', '')
 
         # Handle CORS preflight (OPTIONS) requests immediately
-        if request.method == 'OPTIONS' and origin in self.ALLOWED_ORIGINS:
+        if request.method == 'OPTIONS' and self._is_allowed(origin):
             from django.http import HttpResponse
             response = HttpResponse()
             response['Access-Control-Allow-Origin'] = origin
@@ -26,7 +30,7 @@ class CorsMiddleware:
 
         response = self.get_response(request)
 
-        if origin in self.ALLOWED_ORIGINS:
+        if self._is_allowed(origin):
             response['Access-Control-Allow-Origin'] = origin
             response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
             response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
