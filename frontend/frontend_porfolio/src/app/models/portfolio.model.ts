@@ -10,6 +10,10 @@ export interface Profile {
   location?: string;
   linkedin?: string;
   github?: string;
+  instagram?: string;
+  tiktok?: string;
+  whatsapp?: string;
+  facebook?: string;
   website?: string;
   experiences: Experience[];
   projects: Project[];
