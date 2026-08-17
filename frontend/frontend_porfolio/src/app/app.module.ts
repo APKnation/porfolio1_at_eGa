@@ -7,6 +7,7 @@ import { EducationComponent } from './components/education/education.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { Profile } from './models/portfolio.model';
 import { PortfolioApiService } from './services/portfolio-api.service';
 
@@ -21,7 +22,8 @@ import { PortfolioApiService } from './services/portfolio-api.service';
     EducationComponent,
     ProjectsComponent,
     SkillsSectionComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent
   ],
 
   templateUrl: './app.component.html',

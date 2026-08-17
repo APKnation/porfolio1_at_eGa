@@ -1,0 +1,66 @@
+<footer class="mt-24 border-t border-surface/10 bg-primary">
+  <div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-14 py-16 sm:py-20">
+    
+    <!-- TOP: Brand + Quick Links + Socials -->
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <a href="#top" class="group inline-flex items-center gap-3" aria-label="Back to top">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-surface text-xs font-black tracking-tighter text-primary transition duration-300 group-hover:-rotate-6 shadow-lg shadow-surface/5">
+            {{ initials }}
+          </span>
+          <span class="text-sm font-black tracking-tight text-surface">{{ profile.full_name || profile.name || 'Portfolio' }}</span>
+        </a>
+        <p class="mt-6 max-w-sm text-sm leading-relaxed text-surface/60">
+          {{ profile.bio || "Software Engineering student passionate about building practical solutions that solve real-world problems." }}
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <nav class="flex flex-col gap-3" aria-label="Footer navigation">
+        <h3 class="text-[10px] font-black uppercase tracking-[0.25em] text-accent">Navigate</h3>
+        <a class="text-sm font-bold text-surface/70 transition hover:text-accent" href="#top">Home</a>
+        <a class="text-sm font-bold text-surface/70 transition hover:text-accent" href="#education">About</a>
+        <a class="text-sm font-bold text-surface/70 transition hover:text-accent" href="#projects">Projects</a>
+        <a class="text-sm font-bold text-surface/70 transition hover:text-accent" href="#skills">Skills</a>
+        <a class="text-sm font-bold text-surface/70 transition hover:text-accent" href="#contact">Contact</a>
+      </nav>
+
+      <!-- Contact Info -->
+      <div class="flex flex-col gap-3">
+        <h3 class="text-[10px] font-black uppercase tracking-[0.25em] text-accent">Get in touch</h3>
+        <a *ngIf="profile.email" class="text-sm font-bold text-surface/70 transition hover:text-accent break-all" [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+        <a *ngIf="profile.phone" class="text-sm font-bold text-surface/70 transition hover:text-accent" [href]="'tel:' + profile.phone">{{ profile.phone }}</a>
+        <p *ngIf="profile.location" class="text-sm font-bold text-surface/70">{{ profile.location }}</p>
+        <div class="mt-2 flex flex-wrap gap-3">
+          <a *ngIf="profile.github" [href]="profile.github" target="_blank" rel="noopener noreferrer"
+             class="rounded-xl border border-surface/20 px-4 py-2.5 text-xs font-black uppercase tracking-wide text-surface transition hover:border-accent hover:text-accent" aria-label="GitHub">
+            GitHub
+          </a>
+          <a *ngIf="profile.linkedin" [href]="profile.linkedin" target="_blank" rel="noopener noreferrer"
+             class="rounded-xl border border-surface/20 px-4 py-2.5 text-xs font-black uppercase tracking-wide text-surface transition hover:border-accent hover:text-accent" aria-label="LinkedIn">
+            LinkedIn
+          </a>
+          <a *ngIf="profile.website" [href]="profile.website" target="_blank" rel="noopener noreferrer"
+             class="rounded-xl border border-surface/20 px-4 py-2.5 text-xs font-black uppercase tracking-wide text-surface transition hover:border-accent hover:text-accent" aria-label="Website">
+            Website
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM: Divider + Copyright -->
+    <div class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-surface/10 pt-8 sm:flex-row">
+      <p class="text-xs font-bold text-surface/50">
+        © {{ currentYear }} {{ profile.full_name || profile.name || 'Portfolio' }}. All rights reserved.
+      </p>
+      <a href="#top" class="group inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-surface/50 transition hover:text-accent" aria-label="Back to top">
+        Back to top
+        <span class="grid h-8 w-8 place-items-center rounded-full border border-surface/20 text-sm transition group-hover:border-accent group-hover:text-accent">↑</span>
+      </a>
+    </div>
+
+  </div>
+</footer>
