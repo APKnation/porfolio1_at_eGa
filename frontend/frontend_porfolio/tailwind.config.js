@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         primary: '#173E4B',
         accent: '#BEFF8D',
-        surface: '#F9ECE5',
+        surface: '#FFFFFF',
       },
       fontFamily: {
         sans: ['Tinos', 'serif'],
