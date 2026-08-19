@@ -15,17 +15,17 @@
       <a class="ml-3 rounded-xl px-4 py-3 text-sm font-bold text-surface border border-surface/20 transition hover:bg-surface/10" href="#contact">Let's talk</a>
     </nav>
 
-    <details class="relative md:hidden">
-      <summary class="grid h-10 w-10 cursor-pointer list-none place-items-center rounded-xl border border-primary text-xl leading-none text-surface transition hover:bg-primary [&::-webkit-details-marker]:hidden" aria-label="Open navigation menu">☰</summary>
-      <nav class="absolute right-0 top-[3.25rem] w-64 rounded-2xl border border-primary bg-primary p-3 shadow-2xl shadow-black/40" aria-label="Mobile navigation">
+    <div class="relative md:hidden">
+      <button (click)="toggleMenu()" class="grid h-10 w-10 cursor-pointer place-items-center rounded-xl border border-primary text-xl leading-none text-surface transition hover:bg-primary" [attr.aria-label]="menuOpen ? 'Close navigation menu' : 'Open navigation menu'" [attr.aria-expanded]="menuOpen">☰</button>
+      <nav *ngIf="menuOpen" class="absolute right-0 top-[3.25rem] w-64 rounded-2xl border border-primary bg-primary p-3 shadow-2xl shadow-black/40" aria-label="Mobile navigation">
         <div class="flex flex-col gap-1">
-          <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#top">Home</a>
-          <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#education">About</a>
-          <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#projects">Projects</a>
-          <a class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#skills">Skills</a>
-          <a class="mt-2 rounded-xl px-4 py-3 text-center text-sm font-bold text-surface border border-surface/20 transition hover:bg-surface/10" href="#contact">Let's talk</a>
+          <a (click)="closeMenu()" class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#top">Home</a>
+          <a (click)="closeMenu()" class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#education">About</a>
+          <a (click)="closeMenu()" class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#projects">Projects</a>
+          <a (click)="closeMenu()" class="rounded-xl px-4 py-3 text-sm font-bold text-surface transition hover:bg-primary hover:text-surface" href="#skills">Skills</a>
+          <a (click)="closeMenu()" class="mt-2 rounded-xl px-4 py-3 text-center text-sm font-bold text-surface border border-surface/20 transition hover:bg-surface/10" href="#contact">Let's talk</a>
         </div>
       </nav>
-    </details>
+    </div>
   </div>
 </header>

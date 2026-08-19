@@ -15,4 +15,14 @@ export class NavbarComponent {
     projects: [],
     skills: []
   };
+
+  menuOpen = false;
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
 }
