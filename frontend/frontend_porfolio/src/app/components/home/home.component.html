@@ -29,12 +29,38 @@
     <!-- RIGHT SIDE: Image & Floating Elements -->
     <div class="relative flex justify-center items-center w-full mt-8 lg:mt-0">
 
+      <style>
+        .hero-image-container {
+          animation: fadeInImage 2s ease-in-out 0.5s forwards;
+          opacity: 0;
+        }
+
+        @keyframes fadeInImage {
+          to {
+            opacity: 1;
+          }
+        }
+
+        .image-with-delay {
+          animation: scaleImage 1.5s ease-out 1s forwards;
+          transform: scale(0.8);
+          opacity: 0;
+        }
+
+        @keyframes scaleImage {
+          to {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      </style>
+
       <!-- Person cutout / photo -->
       <ng-container *ngIf="profile.image; else photoPlaceholder">
         <div
-          class="relative z-10 w-full max-w-[280px] sm:max-w-[380px] lg:max-w-[480px] aspect-[4/5] overflow-hidden rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] border-[6px] border-surface/10 shadow-2xl bg-surface/5 flex items-center justify-center">
+          class="relative z-10 w-full max-w-[280px] sm:max-w-[380px] lg:max-w-[480px] aspect-[4/5] overflow-hidden rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem] border-[6px] border-surface/10 shadow-2xl bg-surface/5 flex items-center justify-center hero-image-container">
           <img [src]="profile.image" [alt]="(profile.full_name || profile.name || 'Profile') + ' portrait'"
-            class="h-full w-full object-contain object-center select-none">
+            class="h-full w-full object-contain object-center select-none image-with-delay">
         </div>
       </ng-container>
 
