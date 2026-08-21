@@ -14,7 +14,7 @@
       <h1
         class="text-5xl sm:text-7xl lg:text-[8rem] font-black leading-[0.85] text-surface tracking-tighter uppercase break-words drop-shadow-lg"
       >
-        {{ profile.full_name || profile.name || 'Your Name' }}
+         I'm {{ profile.full_name || profile.name || 'Your Name' }}
       </h1>
 
       <!-- Bio -->
@@ -22,7 +22,7 @@
         <p
           class="text-base sm:text-lg lg:text-2xl text-surface leading-[1.8] max-w-2xl font-medium"
         >
-          I'm {{ profile.bio || 'a Software Engineer' }}
+          {{ profile.bio || 'a Software Engineer' }}
         </p>
       </div>
     </div>
